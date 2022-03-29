@@ -1,10 +1,12 @@
 import "./App.css";
 import { Container, Stack, Button } from "react-bootstrap";
 import BudgetCard from "./components/BudgetCard";
+import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard";
 import AddBudgetModal from "./components/AddBudgetModal";
 import AddExpenseModal from "./components/AddExpenseModal";
 import { useState } from "react";
 import { useBudgets } from "./contexts/BudgetsContext";
+import TotalBudgetCard from "./components/TotalBudgetCard";
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
@@ -41,6 +43,8 @@ function App() {
             alignItems: "flex-start",
           }}
         >
+          <TotalBudgetCard />
+
           {budgets.map((budget) => {
             const amount = getBudgetExpenses(budget.id).reduce(
               (total, expense) => total + expense.amount,
@@ -55,6 +59,8 @@ function App() {
               />
             );
           })}
+
+          <UncategorizedBudgetCard onAddExpenseClick={openAddExpenseModal} />
         </div>
       </Container>
 
