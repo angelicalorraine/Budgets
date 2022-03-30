@@ -8,6 +8,7 @@ export default function BudgetCard({
   gray,
   onAddExpenseClick,
   hideButtons,
+  onViewExpensesClick,
 }) {
   const classNames = [];
   if (amount > max) {
@@ -43,11 +44,13 @@ export default function BudgetCard({
             <Button
               variant="outline-info"
               className="ms-auto"
-              onClick={onAddExpenseClick}
+              onClick={onAddExpensesClick}
             >
               Add Expense
             </Button>
-            <Button variant="outline-secondary">View Expense</Button>{" "}
+            <Button onClick={onViewExpensesClick} variant="outline-secondary">
+              View Expense
+            </Button>
           </Stack>
         )}
       </Card.Body>
