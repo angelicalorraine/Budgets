@@ -6,7 +6,7 @@ export default function BudgetCard({
   amount,
   max,
   gray,
-  onAddExpenseClick,
+  onAddExpensesClick,
   hideButtons,
   onViewExpensesClick,
 }) {
